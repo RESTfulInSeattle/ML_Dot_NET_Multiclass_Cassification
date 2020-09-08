@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using Microsoft.ML;
 
+//From:  https://docs.microsoft.com/en-us/dotnet/machine-learning/tutorials/github-issue-classification
+
 namespace GitHubIssueClassification
 {
     class Program
