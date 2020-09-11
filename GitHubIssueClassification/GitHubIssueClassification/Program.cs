@@ -38,6 +38,7 @@ namespace GitHubIssueClassification
             var trainingPipeline = pipeline.Append(_mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
                 .Append(_mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
+            //This line causes the System.InvalidOperationException "asynchronous operation has not completed"
             _trainedModel = trainingPipeline.Fit(trainingDataView);
 
             _predEngine = _mlContext.Model.CreatePredictionEngine<GitHubIssue, IssuePrediction>(_trainedModel);
